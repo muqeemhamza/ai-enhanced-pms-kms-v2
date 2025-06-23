@@ -1,0 +1,289 @@
+# Cursor AI Development Rules
+# AI-Enhanced Project & Knowledge Management System
+# Enterprise-Grade Development Standards
+
+## CORE DEVELOPMENT PRINCIPLES
+
+### 1. NO SHORTCUTS OR SIMPLIFICATIONS
+- NEVER simplify, skip, or water down requested requirements or features
+- ALL errors must be properly addressed, not bypassed or ignored
+- Maintain enterprise-grade standards at all times
+- If implementation faces blockers, report them explicitly and ask for guidance
+- Requirements remain as specified - no compromises for convenience
+
+### 2. SCALABLE, ROBUST & FLEXIBLE ARCHITECTURE
+- Build for enterprise scale from day one
+- Implement proper error handling with typed exceptions
+- Use TypeScript strict mode with comprehensive type safety
+- Follow microservices patterns with clear separation of concerns
+- Design for horizontal scaling and future feature additions
+- Implement proper database patterns (migrations, foreign keys, indexes)
+
+### 3. COMPREHENSIVE DOCUMENTATION MANDATE
+- Document ALL decisions, issues, and solutions as they occur
+- Update memory-bank/ files after every significant change
+- Create technical documentation for every feature implemented
+- Maintain up-to-date API documentation with examples
+- Document error patterns and their resolutions
+- Never assume - always document context and reasoning
+
+### 4. MCP & API DOCUMENTATION REQUIREMENTS
+- Store all MCP server documentation in docs/mcp/ directory
+- Include installation guides, configuration, and usage examples
+- Document API endpoints with request/response examples
+- Maintain integration guides and troubleshooting sections
+- Create use case documentation for when to use specific MCPs
+- Document all external service integrations with examples
+
+### 5. STRICT TESTING & VALIDATION
+- Implement comprehensive testing at all layers (unit, integration, e2e)
+- Create realistic test data and sample workflows
+- Validate assumptions with evidence-based testing
+- Test error conditions and edge cases thoroughly
+- Never assume functionality works - always validate
+- Create test reports with coverage metrics
+
+### 6. COMPREHENSIVE REPORTING & MANUAL INTERVENTION TRACKING
+- Generate status reports after every major implementation
+- Track items requiring manual intervention separately
+- Document dependencies that need user configuration
+- Report on completion status with evidence
+- List pending items that require attention
+- Never silently skip items - always report what needs manual work
+
+### 7. CLARITY-FIRST COMMUNICATION
+- Ask questions when unclear rather than assuming
+- Request clarification for ambiguous requirements
+- Propose multiple solutions when options exist
+- Confirm understanding before implementation
+- Communicate blockers immediately
+- Never proceed with uncertainty - always seek clarity
+
+## PROJECT-SPECIFIC TECHNICAL STANDARDS
+
+### Database & Supabase Standards
+- Use Supabase PostgreSQL with proper RLS policies
+- Implement audit logging for all data modifications
+- Use proper foreign key relationships and constraints
+- Project Reference: zzmancxxkpwdqjuworvfq
+- Always use migrations for schema changes
+- Implement proper error handling for database operations
+
+### AI Integration Standards
+- Primary: Claude (Anthropic), Fallback: OpenAI
+- Use structured prompts with versioning
+- Implement proper rate limiting and cost optimization
+- Document all AI service integrations
+- Handle AI service failures gracefully
+- Track AI usage and performance metrics
+
+### Code Quality Standards
+- TypeScript strict mode with Zod validation
+- ESLint + Prettier + Husky pre-commit hooks
+- Comprehensive error boundaries in React
+- Repository pattern for data access
+- Service layer for business logic
+- Custom hooks for React logic abstraction
+
+### Architecture Patterns
+- React 18+ with TypeScript, Vite, Tailwind CSS
+- Express.js backend with TypeScript
+- Microservices architecture with clear boundaries
+- Event-driven communication patterns
+- API-first design with OpenAPI documentation
+- Container-based deployment readiness
+
+## MEMORY BANK INTEGRATION
+
+### Memory Bank Structure
+```
+memory-bank/
+├── projectbrief.md      # Foundation document
+├── productContext.md    # Why and how the project works
+├── activeContext.md     # Current focus and next steps
+├── systemPatterns.md    # Architecture and technical decisions
+├── techContext.md       # Technologies and setup
+└── progress.md          # Current status and known issues
+```
+
+### Memory Bank Update Triggers
+- After implementing significant features
+- When discovering new project patterns
+- After resolving major technical challenges
+- When user requests "update memory bank"
+- During architecture or technology changes
+- After completing major milestones
+
+### Memory Bank Maintenance Rules
+- ALWAYS read ALL memory bank files at task start
+- Update activeContext.md after each work session
+- Document architectural decisions in systemPatterns.md
+- Keep techContext.md current with technology changes
+- Maintain progress.md with accurate status reporting
+- Reference memory bank content in implementation decisions
+
+## MCP SERVER INTEGRATION
+
+### Required MCP Servers
+- Supabase MCP: Database operations and schema access
+- Sequential Thinking: Complex problem analysis
+- Filesystem: File operations and project management
+- Context7: Library documentation access
+- Playwright: Browser automation and testing
+- PostgreSQL: Database management and queries
+- Memory Bank: Persistent knowledge management
+
+### MCP Configuration (.cursor/mcp.json)
+```json
+{
+  "mcpServers": {
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "@supabase/mcp-server-supabase@latest", "--read-only", "--project-ref=zzmancxxkpwdqjuworvfq"],
+      "env": {"SUPABASE_ACCESS_TOKEN": "<personal-access-token>"}
+    }
+  }
+}
+```
+
+### MCP Usage Guidelines
+- Use Sequential Thinking for complex problem decomposition
+- Leverage Supabase MCP for database schema understanding
+- Utilize Context7 for library documentation and examples
+- Document all MCP integrations and their purposes
+- Maintain MCP server documentation in docs/mcp/
+
+## DEVELOPMENT WORKFLOW
+
+### Implementation Process
+1. Read ALL memory bank files before starting
+2. Analyze requirements against existing architecture
+3. Ask clarifying questions for any ambiguity
+4. Design solution with scalability in mind
+5. Implement with comprehensive error handling
+6. Test thoroughly with realistic data
+7. Document implementation and decisions
+8. Update memory bank with changes
+9. Report status with evidence and pending items
+
+### Quality Gates
+- TypeScript compilation without errors
+- All tests passing (unit, integration, e2e)
+- ESLint and Prettier formatting compliance
+- Zod schema validation for all inputs
+- Comprehensive error handling implementation
+- Documentation updates completed
+- Security review (RLS, JWT, input validation)
+
+### Error Handling Requirements
+- Never suppress or ignore errors
+- Implement typed error classes
+- Provide user-friendly error messages
+- Log errors with context for debugging
+- Implement graceful degradation where appropriate
+- Test error conditions explicitly
+
+## REPORTING STANDARDS
+
+### Status Report Format
+```markdown
+## Implementation Status Report
+
+### Completed ✅
+- [Feature/Component]: Description of what was implemented
+- Evidence: How it was validated
+- Tests: What testing was performed
+
+### In Progress 🔄
+- [Feature/Component]: Current status
+- Blockers: Any issues encountered
+- Next Steps: What needs to be done
+
+### Manual Intervention Required ⚠️
+- [Item]: What needs manual configuration
+- Context: Why manual intervention is needed
+- Instructions: How to complete the task
+
+### Not Started ❌
+- [Feature/Component]: What hasn't been implemented
+- Dependencies: What needs to be completed first
+- Timeline: When this should be addressed
+```
+
+### Documentation Requirements
+- Update memory-bank/ after each session
+- Create/update technical documentation in docs/
+- Maintain API documentation with examples
+- Document all architectural decisions
+- Keep troubleshooting guides current
+
+## SPECIFIC TECHNICAL REQUIREMENTS
+
+### Supabase Integration
+- Use proper RLS policies for data security
+- Implement real-time subscriptions for live updates
+- Handle authentication with Supabase Auth
+- Utilize Supabase Storage for file management
+- Implement proper error handling for Supabase operations
+
+### React Frontend Standards
+- Use custom hooks for business logic
+- Implement error boundaries at multiple levels
+- Use React Query for server state management
+- Implement proper loading states
+- Use Zod for form validation
+- Follow accessibility best practices
+
+### Express Backend Standards
+- Use repository pattern for data access
+- Implement service layer for business logic
+- Use middleware for cross-cutting concerns
+- Implement proper request validation
+- Use structured logging
+- Handle async operations properly
+
+### Testing Standards
+- Unit tests for all business logic
+- Integration tests for API endpoints
+- E2E tests for critical user workflows
+- Test error conditions and edge cases
+- Maintain test coverage reports
+- Use realistic test data
+
+## COMMUNICATION PROTOCOLS
+
+### When to Ask Questions
+- Requirements are ambiguous or unclear
+- Multiple implementation approaches are possible
+- Technical constraints may impact features
+- Error resolution requires configuration choices
+- Timeline or priority conflicts arise
+- External dependencies need clarification
+
+### Status Communication
+- Provide regular progress updates
+- Report blockers immediately
+- Explain technical decisions and trade-offs
+- Document assumptions made during implementation
+- Share evidence of testing and validation
+- Communicate what requires manual intervention
+
+## CONTINUOUS IMPROVEMENT
+
+### Learning Integration
+- Document new patterns discovered during development
+- Share insights about technology choices
+- Record solutions to unique problems
+- Maintain best practices documentation
+- Update this .cursorrules file when needed
+- Contribute to team knowledge base
+
+### Technology Evolution
+- Stay current with Supabase feature updates
+- Monitor AI service capabilities and limitations
+- Evaluate new tools and libraries
+- Update development patterns as needed
+- Maintain compatibility with latest versions
+- Document upgrade paths and considerations
+
+Remember: This system is built for enterprise scale with AI enhancement. Every decision should consider long-term maintainability, security, and scalability. When in doubt, ask for clarification rather than making assumptions. 

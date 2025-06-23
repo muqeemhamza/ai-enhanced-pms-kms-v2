@@ -1,0 +1,65 @@
+{
+  "name": "ai-pms-kms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-Enhanced Project & Knowledge Management System",
+  "author": "AI PMS KMS Team",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm run dev --workspace=@ai-pms-kms/backend",
+    "dev:frontend": "npm run dev --workspace=@ai-pms-kms/frontend",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces",
+    "test:coverage": "npm run test:coverage --workspaces",
+    "test:e2e": "npm run test:e2e --workspace=@ai-pms-kms/frontend",
+    "lint": "npm run lint --workspaces",
+    "lint:fix": "npm run lint:fix --workspaces",
+    "format": "npm run format --workspaces",
+    "type-check": "npm run type-check --workspaces",
+    "clean": "rimraf packages/*/dist packages/*/coverage packages/*/.turbo node_modules/.cache",
+    "prepare": "husky install",
+    "db:setup": "npm run db:migrate --workspace=@ai-pms-kms/backend && npm run db:seed --workspace=@ai-pms-kms/backend",
+    "db:reset": "npm run db:reset --workspace=@ai-pms-kms/backend",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "rimraf": "^4.1.1",
+    "turbo": "^1.7.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx,json,css,md}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/ai-pms-kms.git"
+  },
+  "keywords": [
+    "project-management",
+    "knowledge-management",
+    "ai",
+    "claude",
+    "react",
+    "nodejs",
+    "typescript"
+  ]
+} 
